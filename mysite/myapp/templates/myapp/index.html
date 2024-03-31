@@ -1,12 +1,7 @@
-{% load static %}
-<html>
-  <head>
-    <link rel="stylesheet" href="{% static 'myapp/style.css' %}" />
-  </head>
-
-  <body>
+{% extends 'myapp/base.html' %}
+{% block body %}
     {% for book in book_list %}
-    <a href="{% url 'myapp:detail' book.id %}"> {{book.name}} </a><br />
+        <a href="{% url 'myapp:detail' book.id %}">{{ book.name }}</a>
+        <br />
     {% endfor %}
-  </body>
-</html>
+{% endblock %}
