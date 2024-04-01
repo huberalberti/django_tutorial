@@ -15,3 +15,15 @@ def index(request):
 def detail(request, book_id):
     book = Book.objects.get(id=book_id)
     return render(request, "myapp/detail.html", {"book": book})
+
+
+def add_book(request):
+    if request.method == "POST":
+        name = request.POST.get("name")
+        desc = request.POST.get("desc")
+        price = request.POST.get("price")
+        book_img = request.FILES["book_image"]
+
+        new_book = Book(name=name, desc=desc, price=price, book_image=book_img)
+        new_book.save()
+    return render(request, "myapp/add_book.html")

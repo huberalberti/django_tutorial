@@ -1,9 +1,7 @@
 {% extends 'myapp/base.html' %}
 {% block body %}
-    {{ book.name }}
-</br>
-{{ book.desc }}
-</br>
-{{ book.price }}
-</br>
+    <img src="{{ book.book_image.url }}" width="150" height="200">
+    <h2>{{ book.name }}</h2>
+    <h4>{{ book.desc }}</h4>
+    <h6>{{ book.price }}</h6>
 {% endblock %}
