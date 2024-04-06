@@ -37,3 +37,10 @@ def update(request, book_id):
         form.save()
         return redirect("/")
     return render(request, "myapp/edit.html", {"form": form, "book": book})
+
+def delete(request, book_id):
+    if request.method == "POST":
+        book = Book.objects.get(id=book_id)
+        book.delete()
+        return redirect("/")
+    return render(request, 'myapp/delete.html')
